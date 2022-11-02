@@ -2,7 +2,7 @@ import { DEF_IMG, DEF_PATH } from 'defaultImages/defaultImages';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import { Item } from './MoviesItem.styled';
+import { Image, Item, Text } from './MoviesItem.styled';
 
 export const MovieItem = ({ movie }) => {
     const location = useLocation();
@@ -11,8 +11,8 @@ export const MovieItem = ({ movie }) => {
         <>
             <Item>
                 <NavLink to={`/movies/${id}`} state={{from: location}}>
-                    <img src={poster_path ? DEF_PATH + poster_path : DEF_IMG} width='160px' alt={title} />
-                    <p>{title}</p>
+                    <Image src={poster_path ? DEF_PATH + poster_path : DEF_IMG} width='100%' alt={title} />
+                    <Text>{title}</Text>
                 </NavLink>
             </Item>
         </>

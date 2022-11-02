@@ -5,7 +5,7 @@ import { RiReplyLine } from 'react-icons/ri';
 import Loader from 'components/Loader/Loader';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchMovieDetails } from 'services/api';
-import { Block, Button } from './MovieDetails.styled';
+import { Block, Button, Item, List, NavItem, Pulse, Section, Title } from './MovieDetails.styled';
 
 
 
@@ -37,33 +37,32 @@ const MovieDetails = () => {
     }
 
     return (
-        <>
+        <Section>
             <Button type='button' onClick={handleSubmit}>
-                <RiReplyLine size='14px' />
-                Back 😊
+                <RiReplyLine size='14px' /> Back 😊
             </Button>
             {status === 'pending' && <Loader />}
             {movie && (
-                <Block>
+                <div>
                     <MovieCard movie={movie} />
-                    <div>
-                        <h2>INFO Movie</h2>
-                        <ul>
-                            <li>
-                                <NavLink to='cast'>Cast</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to='reviews'>Reviews</NavLink>
-                            </li>
-                        </ul>
-                    </div>
+                    <Block>
+                        <Title>INFO Movie</Title>
+                        <List>
+                            <Item>
+                                <NavItem to='cast'>Cast</NavItem>
+                            </Item>
+                            <Item>
+                                <NavItem to='reviews'>Reviews</NavItem>
+                            </Item>
+                        </List>
+                    </Block>
                     <Suspense fallback={<Loader />}>
                         <Outlet />
                     </Suspense>
-                </Block>
+                </div>
             )}
             {!movie || (status === 'rejected' && <h2>Sorry, not found INFO</h2>)}
-        </>
+        </Section>
     );
 };
 

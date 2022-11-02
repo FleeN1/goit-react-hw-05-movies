@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import { fetchMovieCast } from 'services/api';
+import { Image, List, ListBlock, ListItem, Subtitle, Title } from './Cast.styled';
 
 const Cast = () => {
     const { movieId } = useParams();
@@ -30,19 +31,19 @@ const Cast = () => {
     <>
         {
             cast.length !== 0 ? (
-                <ul>
+                <List>
                     {cast.map(({ name, profile_path, id, character }) => {
                         return (
-                            <li key={id}>
-                                <div>
-                                    <img src={profile_path ? DEF_PATH + profile_path : DEF_IMG} width='160px' alt={name} />
-                                    <p>{name}</p>
-                                    <p>Character: {character}</p>
-                                </div>
-                            </li>
+                            <ListItem key={id}>
+                                <ListBlock>
+                                    <Image src={profile_path ? DEF_PATH + profile_path : DEF_IMG} alt={name} />
+                                    <Title>{name}</Title>
+                                    <Subtitle>Character: {character}</Subtitle>
+                                </ListBlock>
+                            </ListItem>
                         );
                     })}
-                </ul>
+                </List>
             ) : (
                 <p>No information here</p>
                 )

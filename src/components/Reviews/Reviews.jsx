@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import { fetchReviews } from 'services/api';
+import { Item, List, Title } from './Reviews.styled';
 
 const Reviews = () => {
     const { movieId } = useParams();
@@ -23,16 +24,16 @@ const Reviews = () => {
     return (
         <>
             {reviews.length !== 0 ? (
-                <ul>
+                <List>
                     {reviews.map(({ id, author, content }) => {
                         return (
-                            <li key={id}>
-                                <p>Author: {author}</p>
+                            <Item key={id}>
+                                <Title>Author: {author}</Title>
                                 <p>{content}</p>
-                            </li>
+                            </Item>
                         );
                     })}
-                </ul>
+                </List>
             ) : (
                 <p>We don't have any reviews</p>
             )}

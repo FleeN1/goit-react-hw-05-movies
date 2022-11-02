@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import PropTypes from "prop-types";
+import { Button, FormIn, Input } from "./Searchbar.styled";
+import { Form } from "./Searchbar.styled";
 
 export default function SeachBar({ getSearchQuery }) {
     const [input, setInput] = useState('');
@@ -18,16 +20,16 @@ export default function SeachBar({ getSearchQuery }) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input
+            <FormIn onSubmit={handleSubmit}>
+                <Input
                     name='input'
                     value={input}
                     type="text"
                     onChange={handleInput}
                     placeholder="Poisk Filmikov"
                 />
-            <button type="submit">Search</button>
-            </form> 
+            <Button type="submit">Search</Button>
+            </FormIn> 
         </div>
     )
 };

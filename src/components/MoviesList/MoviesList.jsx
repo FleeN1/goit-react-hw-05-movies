@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 import { MovieItem } from 'components/MoviesItem/MoviesItem';
+import { Container } from 'components/MovieCard/MovieCard.styled';
+import { List } from './MoviesList.styled';
 
 
 const MoviesList = ({ movies }) => {
     return (
-        <div>
-            <ul>
+        <Container>
+            <List>
                 {movies.map(movie => (
                     <MovieItem movie={movie} key={movie.id} />
                 ))}
-            </ul>
-        </div>
+            </List>
+        </Container>
     );
 };
 
