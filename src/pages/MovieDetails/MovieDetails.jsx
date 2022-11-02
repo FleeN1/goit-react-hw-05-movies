@@ -5,6 +5,7 @@ import { RiReplyLine } from 'react-icons/ri';
 import Loader from 'components/Loader/Loader';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchMovieDetails } from 'services/api';
+import { Block, Button } from './MovieDetails.styled';
 
 
 
@@ -37,13 +38,13 @@ const MovieDetails = () => {
 
     return (
         <>
-            <button type='button' onClick={handleSubmit}>
+            <Button type='button' onClick={handleSubmit}>
                 <RiReplyLine size='14px' />
                 Back 😊
-            </button>
+            </Button>
             {status === 'pending' && <Loader />}
             {movie && (
-                <div>
+                <Block>
                     <MovieCard movie={movie} />
                     <div>
                         <h2>INFO Movie</h2>
@@ -59,7 +60,7 @@ const MovieDetails = () => {
                     <Suspense fallback={<Loader />}>
                         <Outlet />
                     </Suspense>
-                </div>
+                </Block>
             )}
             {!movie || (status === 'rejected' && <h2>Sorry, not found INFO</h2>)}
         </>

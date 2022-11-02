@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { fetchSource } from "services/api";
+import { Container } from "./Movie.styled";
 
 
 
@@ -66,12 +67,12 @@ const Movies = () => {
     }
 
     return (
-        <div>
+        <Container>
             <Searchbar getSearchQuery={handleSearch} />
             
             {movies.length > 0 && <MoviesList movies={movies} />}
             {status === 'pending' && <Loader/>}
-        </div>
+        </Container>
     )
 }
 

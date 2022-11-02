@@ -1,3 +1,4 @@
+import { DEF_IMG, DEF_PATH } from 'defaultImages/defaultImages';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -34,7 +35,7 @@ const Cast = () => {
                         return (
                             <li key={id}>
                                 <div>
-                                    <img src={profile_path} alt={name} />
+                                    <img src={profile_path ? DEF_PATH + profile_path : DEF_IMG} width='160px' alt={name} />
                                     <p>{name}</p>
                                     <p>Character: {character}</p>
                                 </div>
