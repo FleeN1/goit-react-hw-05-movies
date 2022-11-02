@@ -6,7 +6,7 @@ const API_KEY = '941cb65a7dbaeeae793e2e0a05475118';
 
 export const fetchFilms = async () => {
     try {
-        const r = await Axios.get(`/trending/movie/day?api_key=${API_KEY}`);
+        const r = await Axios.get(`trending/movie/week?api_key=${API_KEY}`);
         return r.data.results;
     } catch (error) {
         console.log(error);

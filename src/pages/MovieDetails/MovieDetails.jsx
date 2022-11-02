@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { RiReplyLine } from 'react-icons/ri';
 import Loader from 'components/Loader/Loader';
 import MovieCard from 'components/MovieCard/MovieCard';
+import { fetchMovieDetails } from 'services/api';
 
 
 
@@ -19,7 +20,7 @@ const MovieDetails = () => {
         async function getMovieDetails() {
             try {
                 setStatus('pending');
-                const r = await getMovieDetails(movieId);
+                const r = await fetchMovieDetails(movieId);
                 setMovie(r);
                 setStatus('resolved');
             } catch (error) {
