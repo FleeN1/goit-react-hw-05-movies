@@ -2,7 +2,6 @@ import { useState } from "react";
 import { toast } from 'react-toastify';
 import PropTypes from "prop-types";
 import { Button, FormIn, Input } from "./Searchbar.styled";
-import { Form } from "./Searchbar.styled";
 
 export default function SeachBar({ getSearchQuery }) {
     const [input, setInput] = useState('');

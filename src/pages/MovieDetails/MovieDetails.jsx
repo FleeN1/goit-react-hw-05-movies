@@ -1,11 +1,11 @@
 import { Suspense, useEffect, useState } from 'react';
-import { useParams, Outlet, useLocation, useNavigate, NavLink } from 'react-router-dom';
+import { useParams, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { RiReplyLine } from 'react-icons/ri';
 import Loader from 'components/Loader/Loader';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchMovieDetails } from 'services/api';
-import { Block, Button, Item, List, NavItem, Pulse, Section, Title } from './MovieDetails.styled';
+import { Block, Button, Item, List, NavItem, Section, Title } from './MovieDetails.styled';
 
 
 
